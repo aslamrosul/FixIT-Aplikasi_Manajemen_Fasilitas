@@ -36,6 +36,7 @@
                             <th>Prioritas</th>
                             <th>Skor Total</th>
                             <th>Status</th>
+                            <th>Tanggal Lapor</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -82,6 +83,7 @@
                         }
                     },
                     { data: "skor_total", className: "", orderable: true, searchable: true },
+                    { data: "tanggal_lapor", className: "text-center", orderable: true, searchable: true },
                     { data: "aksi", className: "", orderable: false, searchable: false }
                 ]
             });

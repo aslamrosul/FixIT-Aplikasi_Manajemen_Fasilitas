@@ -186,8 +186,8 @@ Route::middleware(['auth'])->group(function () { //artinya semua route di dalam 
             Route::get('/export_pdf', [UserController::class, 'export_pdf']);
         });
         Route::prefix('admin')->group(function () {
-            Route::get('/dashboard/damage-categories', [DashboardAdminController::class, 'getDamageCategories'])->name('admin.dashboard.damage-categories');
-            Route::get('/dashboard/priority-stats', [DashboardAdminController::class, 'getPriorityStats'])->name('admin.dashboard.priority-stats');
+            Route::get('/dashboard/damage-categories', [DashboardAdminController::class, 'DamageCategories'])->name('admin.dashboard.damage-categories');
+            Route::get('/dashboard/priority-stats', [DashboardAdminController::class, 'PriorityStats'])->name('admin.dashboard.priority-stats');
         });
         //route level
 
@@ -409,6 +409,13 @@ Route::middleware(['authorize:SPR'])->group(function () {
     //route laporan kerusakan
     // Route untuk Sarana Prasarana (Sarpras)
     Route::prefix('sarpras')->group(function () {
+
+        // Route untuk dashboard Sarpras
+        Route::prefix('laporan')->group(function () {
+            Route::get('/yearly-trend', [DashboardSarprasController::class, 'yearlyTrend'])->name('sarpras.dashboard.yearly-trend');
+            Route::get('/priority-facilities', [DashboardSarprasController::class, 'priorityFacilities'])->name('sarpras.dashboard.priority-facilities');
+        });
+
         // Route untuk manajemen laporan kerusakan
         Route::prefix('laporan')->group(function () {
             Route::get('/', [LaporanSarprasController::class, 'index'])->name('sarpras.laporan.index');
@@ -505,8 +512,8 @@ Route::middleware(['authorize:SPR'])->group(function () {
 
 
     Route::prefix('sarpras')->group(function () {
-        Route::get('/dashboard/yearly-trend', [DashboardSarprasController::class, 'getYearlyTrend'])->name('sarpras.dashboard.yearly-trend');
-        Route::get('/dashboard/priority-facilities', [DashboardSarprasController::class, 'getPriorityFacilities'])->name('sarpras.dashboard.priority-facilities');
+        Route::get('/dashboard/yearly-trend', [DashboardSarprasController::class, 'YearlyTrend'])->name('sarpras.dashboard.yearly-trend');
+        Route::get('/dashboard/priority-facilities', [DashboardSarprasController::class, 'PriorityFacilities'])->name('sarpras.dashboard.priority-facilities');
     });
 });
 

@@ -43,7 +43,15 @@
 
 @push('js')
     <script>
-
+        function modalAction(url = '') {
+            $('#myModal').load(url, function() {
+                var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                myModal.show();
+            });
+        }
 
         jQuery(document).ready(function () {
             window.dataLaporan = jQuery('#table_laporan').DataTable({

@@ -264,8 +264,11 @@ class LaporanSarprasController extends Controller
 
     private function tentukanBobotPrioritas($skor)
     {
-        if ($skor >= 0.7) return 1; // Tinggi
-        if ($skor >= 0.4) return 2; // Sedang
+        if ($skor >= 0.8) return 1; // Tinggi
+        if ($skor >= 0.6) return 2; // Sedang
+        if ($skor >= 0.4) return 3; // Sedang
+        if ($skor >= 0.2) return 4; // Sedang
+        if ($skor >= 0.0) return 5; // Sedang
         return 3; // Rendah
     }
 
