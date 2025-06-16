@@ -33,7 +33,7 @@ class DashboardPelaporController extends Controller
         ];
 
         // Get available facilities
-        $facilities = FasilitasModel::with(['ruang', 'barang'])->where('status', 'aktif')
+        $facilities = FasilitasModel::with(['ruang', 'barang'])
             ->orderBy('fasilitas_nama', 'asc')
             ->get();
 
