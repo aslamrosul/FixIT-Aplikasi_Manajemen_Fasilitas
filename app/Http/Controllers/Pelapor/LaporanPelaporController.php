@@ -46,13 +46,29 @@ class LaporanPelaporController extends Controller
     public function list(Request $request)
     {
         if ($request->ajax()) {
-            $laporan = LaporanModel::where('user_id', Auth::id())
-                ->whereNotIn('status',  ['selesai', 'ditolak']) // hindari laporan yang sudah selesai
+            $query = LaporanModel::where('user_id', Auth::id())
                 ->with(['periode', 'fasilitas', 'bobotPrioritas'])
                 ->select('t_laporan.*');
 
-            return DataTables::of($laporan)
+            // Filter status jika ada
+            if ($request->has('status_filter') && $request->status_filter != '') {
+                if ($request->status_filter == 'active') {
+                    $query->whereNotIn('status', ['selesai', 'ditolak']);
+                } else {
+                    $query->where('status', $request->status_filter);
+                }
+            }
+
+            // Filter berdasarkan tanggal lapor jika ada
+            if ($request->has('tanggal_lapor') && $request->tanggal_lapor != '') {
+                $query->whereDate('tanggal_lapor', $request->tanggal_lapor);
+            }
+
+            return DataTables::of($query)
                 ->addIndexColumn()
+                ->addColumn('tanggal_lapor', function ($laporan) {
+                    return $laporan->tanggal_lapor->format('d-m-Y H:i:s');
+                })
                 ->addColumn('aksi', function ($laporan) {
                     $showUrl = url('/pelapor/laporan/' . $laporan->laporan_id . '/show_ajax');
                     $editUrl = url('/pelapor/laporan/' . $laporan->laporan_id . '/edit');
@@ -64,12 +80,11 @@ class LaporanPelaporController extends Controller
                     </button>
                 ';
 
-                    // Tampilkan Edit dan Hapus hanya jika status bukan "diproses"
                     if ($laporan->status !== 'diproses' && $laporan->status !== 'diterima') {
                         $buttons .= '
-                       <a href="' . $editUrl . '" class="btn btn-warning btn-sm">
-    <i class="fa fa-edit"></i>
-</a>
+                    <a href="' . $editUrl . '" class="btn btn-warning btn-sm">
+                            <i class="fa fa-edit"></i>
+                        </a>
                         <button onclick="modalAction(\'' . $deleteUrl . '\')" class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i>  
                         </button>
@@ -78,7 +93,7 @@ class LaporanPelaporController extends Controller
 
                     return $buttons;
                 })
-                ->rawColumns(['aksi'])
+                ->rawColumns(['aksi', 'status'])
                 ->make(true);
         }
     }
