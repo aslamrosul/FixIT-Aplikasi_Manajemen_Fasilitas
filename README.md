@@ -1,53 +1,278 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# FixIT - Aplikasi Manajemen Fasilitas
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img alt="Laravel" src="https://img.shields.io/badge/Laravel-10-FF2D20.svg"/>
+  <img alt="PHP" src="https://img.shields.io/badge/PHP-8.1+-777BB4.svg"/>
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-green.svg"/>
+  <img alt="Status" src="https://img.shields.io/badge/Status-Active-brightgreen.svg"/>
 </p>
 
-## About Laravel
+## 📋 Deskripsi Proyek
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**FixIT** adalah aplikasi web berbasis web yang dirancang untuk mengelola fasilitas dan maintenance secara terpadu. Aplikasi ini membantu organisasi dalam:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Pelaporan Kerusakan Fasilitas** - Memudahkan pengguna melaporkan kerusakan atau masalah pada fasilitas
+- **Manajemen Prioritas** - Menggunakan algoritma TOPSIS untuk menentukan prioritas perbaikan berdasarkan berbagai kriteria
+- **Pelacakan Perbaikan** - Mengelola status dan progres perbaikan fasilitas
+- **Manajemen Aset** - Mencatat dan mengelola aset fasilitas (barang, ruangan, gedung, lantai)
+- **Pelaporan Terstruktur** - Menghasilkan laporan untuk analisis dan pengambilan keputusan
+- **Sistem Role-Based** - Mendukung berbagai peran pengguna (Admin, Pelapor, Sarpras, Teknisi)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ✨ Fitur Utama
 
-## Learning Laravel
+### 1. **Dashboard Interaktif**
+- Dashboard khusus untuk setiap role (Admin, Pelapor, Sarpras, Teknisi)
+- Visualisasi data real-time
+- Notifikasi untuk pembaruan penting
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 2. **Manajemen Pelaporan**
+- Membuat laporan kerusakan fasilitas
+- Lampirkan foto sebagai dokumentasi
+- Tracking status laporan secara real-time
+- Feedback dan komentar pada laporan
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 3. **Sistem Prioritas Berbasis TOPSIS**
+- Menganalisis relevansi laporan menggunakan Multi-Criteria Decision Making
+- Kriteria: frekuensi masalah, usia fasilitas, kondisi, bobot prioritas barang
+- Rekomendasi otomatis untuk penanganan perbaikan
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 4. **Manajemen Perbaikan**
+- Penugasan teknisi untuk perbaikan
+- Pencatatan detail pekerjaan perbaikan
+- Pelacakan biaya dan durasi perbaikan
+- Status siklus lengkap perbaikan
 
-## Laravel Sponsors
+### 5. **Master Data Fasilitas**
+- Manajemen Gedung (Buildings)
+- Manajemen Lantai (Floors)
+- Manajemen Ruang (Rooms)
+- Manajemen Barang/Aset (Items)
+- Kategori dan Klasifikasi Fasilitas
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 6. **Laporan & Analitik**
+- Export ke PDF dan Excel
+- Analisis riwayat perbaikan
+- Rekomendasi pengembangan fasilitas
+- Laporan feedback pengguna
 
-### Premium Partners
+## 🛠️ Teknologi yang Digunakan
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Backend
+- **Laravel 10** - PHP Web Framework
+- **MySQL/PostgreSQL** - Database Management
+- **Eloquent ORM** - Object Relational Mapping
+- **Laravel Sanctum** - API Authentication
+
+### Frontend
+- **Vite** - Modern Build Tool
+- **JavaScript/ES6+** - Client-side Logic
+- **Blade Template** - Server-side Templating
+
+### Libraries Tambahan
+- **barryvdh/laravel-dompdf** - PDF Generation
+- **phpoffice/phpspreadsheet** - Excel Export
+- **yajra/laravel-datatables** - Data Table Management
+- **guzzlehttp/guzzle** - HTTP Client
+
+## 📦 Instalasi
+
+### Prasyarat
+- PHP 8.1 atau lebih tinggi
+- Composer
+- Node.js 16+ dan npm
+- Database (MySQL/PostgreSQL)
+
+### Langkah Instalasi
+
+1. **Clone Repository**
+```bash
+git clone https://github.com/yourusername/FixIT-Aplikasi_Manajemen_Fasilitas.git
+cd FixIT-Aplikasi_Manajemen_Fasilitas
+```
+
+2. **Install Dependencies PHP**
+```bash
+composer install
+```
+
+3. **Install Dependencies JavaScript**
+```bash
+npm install
+```
+
+4. **Setup Environment**
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+5. **Konfigurasi Database**
+Edit file `.env` dan sesuaikan konfigurasi database:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=fixIt
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+6. **Jalankan Migrasi Database**
+```bash
+php artisan migrate
+```
+
+7. **Seed Database (Opsional)**
+```bash
+php artisan db:seed
+```
+
+8. **Build Assets**
+```bash
+npm run build
+```
+
+9. **Jalankan Development Server**
+```bash
+php artisan serve
+```
+
+Server akan berjalan di `http://localhost:8000`
+
+## 🚀 Penggunaan
+
+### Mode Development
+```bash
+# Terminal 1 - PHP Server
+php artisan serve
+
+# Terminal 2 - Vite Dev Server
+npm run dev
+```
+
+### Build untuk Production
+```bash
+npm run build
+php artisan migrate --env=production
+```
+
+## 📁 Struktur Direktori
+
+```
+app/
+├── Http/
+│   ├── Controllers/          # Controller Applications
+│   │   ├── Admin/
+│   │   ├── Pelapor/
+│   │   ├── Sarpras/
+│   │   └── Teknisi/
+│   └── Middleware/           # Custom Middleware
+├── Models/                   # Database Models
+│   ├── UserModel
+│   ├── FasilitasModel
+│   ├── LaporanModel
+│   ├── PerbaikanModel
+│   ├── KriteriaModel
+│   ├── PairwiseKriteriaModel
+│   └── ... (Models lainnya)
+├── Services/                 # Business Logic
+│   └── TopsisService        # TOPSIS Algorithm Implementation
+└── Providers/               # Service Providers
+
+database/
+├── migrations/              # Database Schema
+└── seeders/                 # Initial Data
+
+resources/
+├── css/                     # Stylesheets
+├── js/                      # JavaScript Files
+└── views/                   # Blade Templates
+
+routes/
+├── web.php                  # Web Routes
+├── api.php                  # API Routes
+└── console.php             # Console Commands
+
+public/
+├── images/                 # Public Images
+└── landing-page/          # Landing Page Assets
+```
+
+## 🔐 Role & Permissions
+
+Aplikasi mendukung 4 peran utama:
+
+| Role | Deskripsi | Akses Utama |
+|------|-----------|-------------|
+| **Admin** | Pengelola sistem | Manage semua data, user, settings |
+| **Pelapor** | Pelapor kerusakan | Buat laporan, view feedback |
+| **Sarpras** | Manager infrastruktur | Assign perbaikan, manage fasilitas |
+| **Teknisi** | Pelaksana perbaikan | View penugasan, catat progress |
+
+## 📊 Database Schema
+
+Beberapa tabel utama:
+
+- `t_user` - Data pengguna
+- `t_perbaikan` - Data perbaikan
+- `t_laporan` - Data laporan kerusakan
+- `t_fasilitas` - Data fasilitas
+- `m_criteria` - Kriteria TOPSIS
+- `m_pairwise_criteria` - Pairwise comparison untuk AHP
+- `t_rekomendasi` - Rekomendasi sistem
+
+## 🧪 Testing
+
+Jalankan unit tests:
+```bash
+php artisan test
+```
+
+Jalankan test dengan coverage:
+```bash
+php artisan test --coverage
+```
+
+## 📝 API Documentation
+
+API dapat diakses dengan Bearer Token authentication. Contoh:
+
+```bash
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+     http://localhost:8000/api/laporan
+```
+
+## 🤝 Kontribusi
+
+Kontribusi sangat diterima! Untuk berkontribusi:
+
+1. Fork repository
+2. Buat branch feature (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Open Pull Request
+
+## 📜 Lisensi
+
+Proyek ini dilisensikan di bawah lisensi MIT - lihat file [LICENSE](LICENSE) untuk detail.
+
+## 👥 Tim Pengembang
+
+Dikembangkan untuk membantu organisasi mengelola fasilitas mereka dengan lebih efisien.
+
+## 📞 Dukungan & Feedback
+
+Jika Anda menemukan bug atau memiliki saran, silakan [buka issue](https://github.com/yourusername/FixIT-Aplikasi_Manajemen_Fasilitas/issues).
+
+## 📚 Resources
+
+- [Laravel Documentation](https://laravel.com/docs)
+- [TOPSIS Method](https://en.wikipedia.org/wiki/TOPSIS)
+- [PHP Official](https://www.php.net/)
+
+---
+
+**Dibuat dengan ❤️ untuk manajemen fasilitas yang lebih baik**
 
 ## Contributing
 
